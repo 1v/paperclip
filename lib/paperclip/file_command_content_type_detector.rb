@@ -20,10 +20,12 @@ module Paperclip
                Paperclip.log("Error while determining content type: #{e}")
                SENSIBLE_DEFAULT
              end
-
+      puts type.inspect
       if type.nil? || type.match(/\(.*?\)/)
         type = SENSIBLE_DEFAULT
       end
+      puts type.inspect
+      puts type.split(/[:;\s]+/)[0]
       type.split(/[:;\s]+/)[0]
     end
   end
