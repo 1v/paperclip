@@ -72,7 +72,9 @@ module Paperclip
 
     def type_from_file_command
       begin
-        Paperclip.run("file", "-b --mime :file", :file => @file.path).split(/[:;]\s+/).first
+        result = Paperclip.run("file", "-b --mime :file", :file => @file.path).split(/[:;]\s+/).first
+        puts result.inspect
+        result
       rescue Cocaine::CommandLineError
         ""
       end
